@@ -247,7 +247,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &456327675
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -621,6 +621,7 @@ MonoBehaviour:
   moveSpeed: 5
   weapon: {fileID: 8675253981323049141, guid: ff438439c7e85994fac9b4f947b0c252, type: 3}
   shootTransform: {fileID: 38937798}
+  shootInterval: 0.05
 --- !u!50 &1216338119
 Rigidbody2D:
   serializedVersion: 4
@@ -700,7 +701,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1745871796
 MonoBehaviour:
   m_ObjectHideFlags: 0
