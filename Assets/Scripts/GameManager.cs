@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,6 +13,9 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] 
     private TextMeshProUGUI text;
+
+    [SerializeField]
+    private GameObject gameOverPanel;
 
     void Awake()
     {
@@ -45,5 +49,17 @@ public class GameManager : MonoBehaviour
         {
             enemySpawner.StopEnemyRoutine();
         }
+        
+        Invoke("ShowGameOverPanel", 1f);
+    }
+
+    void ShowGameOverPanel()
+    {
+        gameOverPanel.SetActive(true);
+    }
+
+    public void PlayAgain()
+    {
+        SceneManager.LoadScene("SampleScene");
     }
 }
