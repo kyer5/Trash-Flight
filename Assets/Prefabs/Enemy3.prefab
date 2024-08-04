@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dec3249150c1d6e4ca9a9bac8cad5ecf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coin: {fileID: 1085587368788762232, guid: 1f9e7128e0397dd46bb89f3a703454b0, type: 3}
   moveSpeed: 5
   hp: 3
 --- !u!61 &7310294741612858296
