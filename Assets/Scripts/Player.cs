@@ -1,14 +1,17 @@
 using System;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Player : MonoBehaviour
 {
     [SerializeField]
     private float moveSpeed;
 
-    [SerializeField]
-    private GameObject weapon;
+    [FormerlySerializedAs("weapon")] [SerializeField]
+    private GameObject[] weapons;
+
+    private int weaponIndex = 0;
 
     [SerializeField] 
     private Transform shootTransform;
@@ -44,7 +47,7 @@ public class Player : MonoBehaviour
     {
         if (Time.time - lastShotTime > shootInterval) 
         {
-            Instantiate(weapon, shootTransform.position, Quaternion.identity);
+            Instantiate(weapons[weaponIndex], shootTransform.position, Quaternion.identity);
             lastShotTime = Time.time;
         }
     }
@@ -61,4 +64,14 @@ public class Player : MonoBehaviour
             Destroy(other.gameObject);
         }
     }
+
+    public void Upgrade()
+    {
+        weaponIndex++;
+        if (weaponIndex >= weapons.Length)
+        {
+            weaponIndex = weapons.Length - 1;
+        }
+    }
+    
 }
