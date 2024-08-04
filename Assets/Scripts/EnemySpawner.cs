@@ -22,7 +22,12 @@ public class EnemySpawner : MonoBehaviour
 
     void StartEnemyRoutine()
     {
-        StartCoroutine(EnemyRoutine());
+        StartCoroutine("EnemyRoutine");
+    }
+    
+    public void StopEnemyRoutine()
+    {
+        StopCoroutine("EnemyRoutine");
     }
 
     IEnumerator EnemyRoutine()

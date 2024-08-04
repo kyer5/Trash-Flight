@@ -7,6 +7,9 @@ public class GameManager : MonoBehaviour
 
     private int coin = 0;
 
+    [HideInInspector]
+    public bool isGameOver = false;
+
     [SerializeField] 
     private TextMeshProUGUI text;
 
@@ -30,6 +33,17 @@ public class GameManager : MonoBehaviour
             {
                 player.Upgrade();
             }
+        }
+    }
+
+    public void SetGameOver()
+    {
+        isGameOver = true;
+        
+        EnemySpawner enemySpawner = FindObjectOfType<EnemySpawner>();
+        if (enemySpawner != null)
+        {
+            enemySpawner.StopEnemyRoutine();
         }
     }
 }

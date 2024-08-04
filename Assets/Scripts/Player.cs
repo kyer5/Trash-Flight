@@ -40,7 +40,10 @@ public class Player : MonoBehaviour
          float toX = Mathf.Clamp(mousePos.x, -2.35f, 2.35f);
         transform.position = new Vector3(toX, transform.position.y, transform.position.z);
 
-        Shoot();
+        if (GameManager.instance.isGameOver == false)
+        {
+            Shoot();   
+        }
     }
 
     void Shoot()
@@ -56,8 +59,8 @@ public class Player : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "Boss")
         {
-            Debug.Log("Game Over");
-            Destroy(gameObject);
+            GameManager.instance.SetGameOver();
+            Destroy(gameObject);    
         } else if (other.gameObject.tag == "Coin")
         {
             GameManager.instance.IncreaseCoin();
